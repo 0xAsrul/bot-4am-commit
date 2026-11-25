@@ -9,6 +9,10 @@ import os
 
 LINE = "fix: the bug was code I wrote, reviewed, and approved myself at 3am. I have opened an investigation into myself and I am the prime suspect"
 
+# The gate only accepts 1-200 characters; fail loudly instead of
+# ever writing an invalid entry.
+assert 1 <= len(LINE) <= 200, "entry line must be 1-200 chars"
+
 
 def main() -> None:
     os.makedirs("/output", exist_ok=True)
